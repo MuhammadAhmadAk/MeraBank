@@ -1,0 +1,135 @@
+﻿@model MeraBank.Models.tbl_AccountHolder
+
+@{
+    Layout = "~/Views/Shared/banktPage.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Account</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("Save", "Bank", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h4 class="text-center my-3 fs-1">Account Registration</h4>
+        <hr />
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActName, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActFather, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActFather, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActFather, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CNIC, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.CNIC, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CNIC, "", new { @class = "text-danger" })
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActMobile, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActMobile, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActMobile, "", new { @class = "text-danger" })
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActEmail, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActEmail, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActGender, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActGender, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActGender, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActStatus, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActStatus, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActStatus, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ActAdress, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.ActAdress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActAdress, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto">
+
+                        <button class="btn btn-primary mt-5  form-control" style="margin-left:350px;width:380px">Create Account</button>
+
+                    </div>
+                       
+                </div>
+
+            </div>
+        </div>
+    }
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    @Html.Action("AccountHolderDetail", "Bank")
+</body>
+</html>
+

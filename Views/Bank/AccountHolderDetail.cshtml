@@ -1,0 +1,64 @@
+﻿@model List<MeraBank.Models.tbl_AccountHolder>
+<link href="~/Content/fontsAwesome/all.css" rel="stylesheet" />
+<h4 class="text-center my-3 fs-1">AccountHolder Details</h4>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<hr />
+<div class="container">
+    <table class="border-4 table table-striped text-center table-responsive ">
+        <tr style="background-color:darkslategray;color:white">
+            <th class="text-white">A/C</th>
+            <th class="text-white">Name</th>
+            <th class="text-white">FatherName</th>
+            <th class="text-white">CNIC</th>
+            <th class="text-white">Mobile No</th>
+            <th class="text-white">Email</th>
+            <th class="text-white">Gender</th>
+            <th class="text-white">Status</th>
+            <th class="text-white">Address</th>
+            <th class="text-white">Image</th>
+            <th class="text-white">Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(Item => item.ActId)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActName)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActFather)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.CNIC)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActMobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActGender)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.ActAdress)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.Image)
+                </td>
+
+                <td>
+                    <a href="/Bank/Delete?id=@item.ActId" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="/Bank/Edit?id=@item.ActId" class="btn btn-sm btn-success">Edit</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

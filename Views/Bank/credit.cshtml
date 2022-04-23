@@ -1,0 +1,83 @@
+﻿@model MeraBank.Models.M_ActDetail
+@{
+    Layout = "~/Views/Shared/banktPage.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <title>credit</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" placeholder="Account No" id="txtAccountNo" class="text-center form-control" />
+            </div>
+            <div class="col-md-4">
+                <a href="Javascript" class="btn btn-primary" onclick="this.href = '/Bank/GetRecord?Id=' + document.getElementById('txtAccountNo').value">Record</a>
+            </div>
+        </div>
+    </div>
+    @*table*@
+    <div class="container">
+        <table class="table table-bordered mt-4 text-center">
+            <thead>
+                <tr class="bg-dark">
+                    <th class="text-white">A/C</th>
+                    <th class="text-white">Name</th>
+                    <th class="text-white">CNIC</th>
+                    <th class="text-white">Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.Account_ID, new { @class = "text-center", style = "border:none"})
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "text-center", style = "border:none" })
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.CNIC, new { @class = "text-center", style = "border:none" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.Balance, new { @class = "text-center", style = "border:none" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @*Credit*@
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" placeholder="Credit Balance" id="txDBBalnce" class="text-center form-control"  />
+            </div>
+            <div class="col-md-4">
+                <a href="Javascript" class="btn btn-primary" onclick="this.href = '/Bank/UpdateCredit?Bal=' + document.getElementById('txDBBalnce').value">Credit</a>
+            </div>
+        </div>
+    </div>
+
+    @*Debit*@
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" placeholder="Debit Balance" id="txtUpBalnce" class="text-center form-control"/>
+            </div>
+            <div class="col-md-4">
+                <a href="Javascript" class="btn btn-primary" onclick="this.href = '/Bank/UpdateDebit?Bal=' + document.getElementById('txtUpBalnce').value">Debit</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

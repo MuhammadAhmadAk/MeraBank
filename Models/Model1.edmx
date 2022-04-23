@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MeraBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_AccountBalance">
+          <Key>
+            <PropertyRef Name="BalId" />
+          </Key>
+          <Property Name="BalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActId" Type="int" />
+          <Property Name="Balance" Type="money" />
+        </EntityType>
+        <EntityType Name="tbl_AccountHolder">
+          <Key>
+            <PropertyRef Name="ActId" />
+          </Key>
+          <Property Name="ActId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActName" Type="varchar(max)" />
+          <Property Name="ActFather" Type="varchar(max)" />
+          <Property Name="CNIC" Type="varchar(max)" />
+          <Property Name="ActMobile" Type="varchar(max)" />
+          <Property Name="ActEmail" Type="varchar(max)" />
+          <Property Name="ActGender" Type="varchar(max)" />
+          <Property Name="ActStatus" Type="varchar(max)" />
+          <Property Name="ActAdress" Type="varchar(max)" />
+          <Property Name="Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_TranferDetails">
+          <Key>
+            <PropertyRef Name="TrsID" />
+          </Key>
+          <Property Name="TrsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActId" Type="int" />
+          <Property Name="TrsCategory" Type="varchar(max)" />
+          <Property Name="TrsDate" Type="varchar(max)" />
+          <Property Name="Credit" Type="decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="Debit" Type="decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MeraBankModelStoreContainer">
+          <EntitySet Name="tbl_AccountBalance" EntityType="Self.tbl_AccountBalance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AccountHolder" EntityType="Self.tbl_AccountHolder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TranferDetails" EntityType="Self.tbl_TranferDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MeraBankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_AccountBalance">
+          <Key>
+            <PropertyRef Name="BalId" />
+          </Key>
+          <Property Name="BalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActId" Type="Int32" />
+          <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="tbl_AccountHolder" Relationship="Self.FK__tbl_Accou__ActId__1273C1CD" FromRole="tbl_AccountBalance" ToRole="tbl_AccountHolder" />
+        </EntityType>
+        <EntityType Name="tbl_AccountHolder">
+          <Key>
+            <PropertyRef Name="ActId" />
+          </Key>
+          <Property Name="ActId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActFather" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActMobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActGender" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_AccountBalance" Relationship="Self.FK__tbl_Accou__ActId__1273C1CD" FromRole="tbl_AccountHolder" ToRole="tbl_AccountBalance" />
+          <NavigationProperty Name="tbl_TranferDetails" Relationship="Self.FK__tbl_Tranf__ActId__15502E78" FromRole="tbl_AccountHolder" ToRole="tbl_TranferDetails" />
+        </EntityType>
+        <EntityType Name="tbl_TranferDetails">
+          <Key>
+            <PropertyRef Name="TrsID" />
+          </Key>
+          <Property Name="TrsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActId" Type="Int32" />
+          <Property Name="TrsCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrsDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Credit" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="Debit" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="tbl_AccountHolder" Relationship="Self.FK__tbl_Tranf__ActId__15502E78" FromRole="tbl_TranferDetails" ToRole="tbl_AccountHolder" />
+        </EntityType>
+        <Association Name="FK__tbl_Accou__ActId__1273C1CD">
+          <End Role="tbl_AccountHolder" Type="Self.tbl_AccountHolder" Multiplicity="0..1" />
+          <End Role="tbl_AccountBalance" Type="Self.tbl_AccountBalance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_AccountHolder">
+              <PropertyRef Name="ActId" />
+            </Principal>
+            <Dependent Role="tbl_AccountBalance">
+              <PropertyRef Name="ActId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Tranf__ActId__15502E78">
+          <End Role="tbl_AccountHolder" Type="Self.tbl_AccountHolder" Multiplicity="0..1" />
+          <End Role="tbl_TranferDetails" Type="Self.tbl_TranferDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_AccountHolder">
+              <PropertyRef Name="ActId" />
+            </Principal>
+            <Dependent Role="tbl_TranferDetails">
+              <PropertyRef Name="ActId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bank" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_AccountBalance" EntityType="Self.tbl_AccountBalance" />
+          <EntitySet Name="tbl_AccountHolder" EntityType="Self.tbl_AccountHolder" />
+          <EntitySet Name="tbl_TranferDetails" EntityType="Self.tbl_TranferDetails" />
+          <AssociationSet Name="FK__tbl_Accou__ActId__1273C1CD" Association="Self.FK__tbl_Accou__ActId__1273C1CD">
+            <End Role="tbl_AccountHolder" EntitySet="tbl_AccountHolder" />
+            <End Role="tbl_AccountBalance" EntitySet="tbl_AccountBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Tranf__ActId__15502E78" Association="Self.FK__tbl_Tranf__ActId__15502E78">
+            <End Role="tbl_AccountHolder" EntitySet="tbl_AccountHolder" />
+            <End Role="tbl_TranferDetails" EntitySet="tbl_TranferDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MeraBankModelStoreContainer" CdmEntityContainer="Bank">
+          <EntitySetMapping Name="tbl_AccountBalance">
+            <EntityTypeMapping TypeName="MeraBankModel.tbl_AccountBalance">
+              <MappingFragment StoreEntitySet="tbl_AccountBalance">
+                <ScalarProperty Name="BalId" ColumnName="BalId" />
+                <ScalarProperty Name="ActId" ColumnName="ActId" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AccountHolder">
+            <EntityTypeMapping TypeName="MeraBankModel.tbl_AccountHolder">
+              <MappingFragment StoreEntitySet="tbl_AccountHolder">
+                <ScalarProperty Name="ActId" ColumnName="ActId" />
+                <ScalarProperty Name="ActName" ColumnName="ActName" />
+                <ScalarProperty Name="ActFather" ColumnName="ActFather" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="ActMobile" ColumnName="ActMobile" />
+                <ScalarProperty Name="ActEmail" ColumnName="ActEmail" />
+                <ScalarProperty Name="ActGender" ColumnName="ActGender" />
+                <ScalarProperty Name="ActStatus" ColumnName="ActStatus" />
+                <ScalarProperty Name="ActAdress" ColumnName="ActAdress" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TranferDetails">
+            <EntityTypeMapping TypeName="MeraBankModel.tbl_TranferDetails">
+              <MappingFragment StoreEntitySet="tbl_TranferDetails">
+                <ScalarProperty Name="TrsID" ColumnName="TrsID" />
+                <ScalarProperty Name="ActId" ColumnName="ActId" />
+                <ScalarProperty Name="TrsCategory" ColumnName="TrsCategory" />
+                <ScalarProperty Name="TrsDate" ColumnName="TrsDate" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

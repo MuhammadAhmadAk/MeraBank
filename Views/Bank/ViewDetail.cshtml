@@ -1,0 +1,91 @@
+﻿@model List<MeraBank.Models.tbl_TranferDetails>
+@{
+    Layout = "~/Views/Shared/banktPage.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewDetail</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnDetail").click(function () {
+
+                    $("#div1").hide();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row" id="div1">
+            <div class="col-md-4">
+                <input type="text" placeholder="Account No" id="txtAccountNo" class="text-center form-control" />
+            </div>
+            <div class="col-md-4">
+                <a href="Javascript" id="btnDetail" class="btn btn-primary" onclick="this.href = '/Bank/ViewTDetail?id='+ document.getElementById('txtAccountNo').value">Detail</a>
+            </div>
+            <span>ViewBag.error</span>
+        </div>
+    </div>
+    <div class="container mt-4">
+
+        <table class="table text-center table-striped">
+            <tr class="bg-dark">
+                <th class="text-white">
+                    A/C
+                </th>
+                <th class="text-white">
+                    Category
+                </th>
+                <th class="text-white">
+                    Date
+                </th>
+                <th class="text-white">
+                    Credit
+                </th>
+                <th class="text-white">
+                    Debit
+                </th>
+                <th class="text-white">
+                    Balance
+                </th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrsCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrsDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Credit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Debit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Balance)
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </table>
+    </div>
+
+</body>
+</html>
