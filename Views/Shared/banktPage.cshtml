@@ -1,55 +1,66 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/fontsAwesome/all.css" rel="stylesheet" />
+    <link href="~/Content/fontsAwesome/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- As a link -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Banking</a>
+            @Html.ActionLink("HOME", "Index", "Bank", new { area = "" }, new { @class = "navbar-brand"})
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="~/Views/Bank/Account.cshtml">Account</a>
+                        @Html.ActionLink("Create Account", "Account", "Bank", new { area = "" }, new { @class = "navbar-brand" })
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Views/Bank/credit.cshtml">Tranfer Money</a>
+
+                        @Html.ActionLink("Credit & Debit", "credit", "Bank", new { area = "" }, new { @class = "navbar-brand" })
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Views/Bank/ViewDetail.cshtml">Detail</a>
+                        @Html.ActionLink("Tranfer Detail", "ViewDetail", "Bank", new { area = "" }, new { @class = "navbar-brand" })
+
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- As a heading -->
-    <div>
+    <div class="container body-content">
         @RenderBody()
+
     </div>
+
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year -BANKING</p>
+    <footer class="bg-info">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

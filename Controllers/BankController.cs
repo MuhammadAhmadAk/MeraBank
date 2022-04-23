@@ -11,6 +11,10 @@ namespace MeraBank.Controllers
     {
         // GET: Bank
         Bank Bnk = new Bank();
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult Account()
         {
             return View();

@@ -16,7 +16,7 @@ namespace MeraBank
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Bank", action = "ViewDetail", id = UrlParameter.Optional }
+                defaults: new { controller = "Bank", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

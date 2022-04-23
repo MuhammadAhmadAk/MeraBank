@@ -111,6 +111,11 @@
     <Content Include="Content\Icons\to-svg.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\1PMH.gif" />
+    <Content Include="Image\Ahmd.jpg" />
+    <Content Include="Image\bak.jpeg" />
+    <Content Include="Image\dmitry-demidko-eBWzFKahEaU-unsplash.jpg" />
+    <Content Include="Image\Khan.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -199,6 +204,7 @@
     <Content Include="Views\Bank\ViewDetail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\banktPage.cshtml" />
+    <Content Include="Views\Bank\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
